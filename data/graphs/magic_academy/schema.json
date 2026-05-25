@@ -1,0 +1,102 @@
+{
+  "graph_name": "magic_academy",
+  "description": "An ancient magic academy with houses, students, professors, courses, and magical creatures. A fully fictional fantasy world.",
+  "nodes": [
+    {
+      "label": "House",
+      "count": 8,
+      "properties": {
+        "name": "string",
+        "element": "string",
+        "founded_year": "int"
+      }
+    },
+    {
+      "label": "Student",
+      "count": 150,
+      "properties": {
+        "name": "string",
+        "year": "int",
+        "talent_score": "int",
+        "species": "string"
+      }
+    },
+    {
+      "label": "Professor",
+      "count": 30,
+      "properties": {
+        "name": "string",
+        "subject": "string",
+        "tenure_year": "int"
+      }
+    },
+    {
+      "label": "Course",
+      "count": 100,
+      "properties": {
+        "name": "string",
+        "level": "string",
+        "credits": "int"
+      }
+    },
+    {
+      "label": "Creature",
+      "count": 60,
+      "properties": {
+        "name": "string",
+        "danger_level": "int",
+        "habitat": "string"
+      }
+    },
+    {
+      "label": "Spell",
+      "count": 30,
+      "properties": {
+        "name": "string",
+        "school": "string",
+        "power_level": "int",
+        "casting_time": "string"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "BELONGS_TO_HOUSE",
+      "source": "Student",
+      "target": "House",
+      "properties": {}
+    },
+    {
+      "type": "HEADS_HOUSE",
+      "source": "Professor",
+      "target": "House",
+      "properties": {}
+    },
+    {
+      "type": "ENROLLED_IN",
+      "source": "Student",
+      "target": "Course",
+      "properties": {
+        "grade": "string"
+      }
+    },
+    {
+      "type": "TEACHES",
+      "source": "Professor",
+      "target": "Course",
+      "properties": {}
+    },
+    {
+      "type": "STUDIES_CREATURE",
+      "source": "Course",
+      "target": "Creature",
+      "properties": {}
+    },
+    {
+      "type": "REQUIRES",
+      "source": "Course",
+      "target": "Spell",
+      "properties": {}
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "graph_name": "arcane_archive",
+  "description": "A vast mystical knowledge repository spanning sanctums, scriptoriums, scholars, ancient tomes, patrons, and scholarly conclaves.",
+  "nodes": [
+    {
+      "label": "Sanctum",
+      "count": 5,
+      "properties": {
+        "name": "string",
+        "realm": "string",
+        "prestige_rank": "int",
+        "founding_year": "int"
+      }
+    },
+    {
+      "label": "Scriptorium",
+      "count": 30,
+      "properties": {
+        "name": "string",
+        "discipline": "string",
+        "annual_budget": "int",
+        "established_year": "int"
+      }
+    },
+    {
+      "label": "Scholar",
+      "count": 120,
+      "properties": {
+        "name": "string",
+        "rank": "string",
+        "arcane_level": "int",
+        "origin": "string"
+      }
+    },
+    {
+      "label": "Tome",
+      "count": 180,
+      "properties": {
+        "name": "string",
+        "transcription_year": "int",
+        "citation_count": "int",
+        "archive_location": "string"
+      }
+    },
+    {
+      "label": "Endowment",
+      "count": 55,
+      "properties": {
+        "name": "string",
+        "gold_pieces": "int",
+        "granted_year": "int",
+        "status": "string"
+      }
+    },
+    {
+      "label": "Conclave",
+      "count": 30,
+      "properties": {
+        "name": "string",
+        "tier": "string",
+        "acceptance_rate": "int",
+        "host_city": "string"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "AFFILIATED_WITH",
+      "source": "Scriptorium",
+      "target": "Sanctum",
+      "properties": {"since_year": "int"}
+    },
+    {
+      "type": "WORKS_IN",
+      "source": "Scholar",
+      "target": "Scriptorium",
+      "properties": {"since_year": "int"}
+    },
+    {
+      "type": "INSCRIBED_BY",
+      "source": "Scholar",
+      "target": "Tome",
+      "properties": {"contribution_order": "int"}
+    },
+    {
+      "type": "REFERENCES",
+      "source": "Tome",
+      "target": "Tome",
+      "properties": {}
+    },
+    {
+      "type": "PRESENTED_AT",
+      "source": "Tome",
+      "target": "Conclave",
+      "properties": {}
+    },
+    {
+      "type": "SPONSORED_BY",
+      "source": "Scriptorium",
+      "target": "Endowment",
+      "properties": {"allocated_gold": "int"}
+    }
+  ]
+}

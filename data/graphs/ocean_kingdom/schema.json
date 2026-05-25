@@ -1,0 +1,110 @@
+{
+  "graph_name": "ocean_kingdom",
+  "description": "An ancient deep-sea civilization with kingdoms, city-states, inhabitants, treasures, marine creatures, and ancient artifacts. A fully fictional underwater world.",
+  "nodes": [
+    {
+      "label": "Kingdom",
+      "count": 8,
+      "properties": {
+        "name": "string",
+        "depth_meters": "int",
+        "population": "int"
+      }
+    },
+    {
+      "label": "City",
+      "count": 60,
+      "properties": {
+        "name": "string",
+        "specialty": "string",
+        "founding_era": "string",
+        "population": "int"
+      }
+    },
+    {
+      "label": "Citizen",
+      "count": 150,
+      "properties": {
+        "name": "string",
+        "species": "string",
+        "occupation": "string",
+        "age": "int"
+      }
+    },
+    {
+      "label": "Treasure",
+      "count": 50,
+      "properties": {
+        "name": "string",
+        "value": "int",
+        "origin": "string"
+      }
+    },
+    {
+      "label": "Creature",
+      "count": 81,
+      "properties": {
+        "name": "string",
+        "size": "string",
+        "temperament": "string",
+        "danger_level": "int"
+      }
+    },
+    {
+      "label": "Artifact",
+      "count": 20,
+      "properties": {
+        "name": "string",
+        "age_years": "int",
+        "power": "string",
+        "material": "string"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "GOVERNS",
+      "source": "Kingdom",
+      "target": "City",
+      "properties": {}
+    },
+    {
+      "type": "RESIDENT_OF",
+      "source": "Citizen",
+      "target": "City",
+      "properties": {}
+    },
+    {
+      "type": "DISCOVERED",
+      "source": "Citizen",
+      "target": "Treasure",
+      "properties": {
+        "year": "int"
+      }
+    },
+    {
+      "type": "INHABITED_BY",
+      "source": "City",
+      "target": "Creature",
+      "properties": {}
+    },
+    {
+      "type": "TAMES",
+      "source": "Citizen",
+      "target": "Creature",
+      "properties": {}
+    },
+    {
+      "type": "GUARDS",
+      "source": "Creature",
+      "target": "Artifact",
+      "properties": {}
+    },
+    {
+      "type": "STORED_IN",
+      "source": "Treasure",
+      "target": "City",
+      "properties": {}
+    }
+  ]
+}

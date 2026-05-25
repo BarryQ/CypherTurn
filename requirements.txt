@@ -1,0 +1,5 @@
+pydantic>=2.0
+requests>=2.28
+neo4j>=5.0
+openai>=1.0
+tqdm>=4.60

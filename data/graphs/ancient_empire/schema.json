@@ -1,0 +1,23 @@
+{
+  "graph_name": "ancient_empire",
+  "description": "A fictional ancient empire with complex political hierarchy, provinces, cities, legions, and monuments.",
+  "nodes": [
+    { "label": "Empire", "count": 10, "properties": { "name": "string", "founding_year": "int", "territory_size": "int", "era": "string" } },
+    { "label": "Province", "count": 60, "properties": { "name": "string", "tax_rate": "int", "population": "int", "prosperity": "string" } },
+    { "label": "City", "count": 100, "properties": { "name": "string", "population": "int", "defense_level": "int", "trade_hub": "string" } },
+    { "label": "Citizen", "count": 150, "properties": { "name": "string", "birth_year": "int", "social_class": "string", "occupation": "string" } },
+    { "label": "Legion", "count": 30, "properties": { "name": "string", "strength": "int", "battle_count": "int", "specialty": "string" } },
+    { "label": "Resource", "count": 50, "properties": { "name": "string", "quantity": "int", "rarity": "int", "category": "string" } },
+    { "label": "Monument", "count": 40, "properties": { "name": "string", "built_year": "int", "height_meters": "int", "monument_type": "string" } }
+  ],
+  "relationships": [
+    { "type": "CONTROLS", "source": "Empire", "target": "Province", "properties": { "tribute": "int" } },
+    { "type": "HAS_CITY", "source": "Province", "target": "City", "properties": {} },
+    { "type": "LIVES_IN", "source": "Citizen", "target": "City", "properties": { "since_year": "int" } },
+    { "type": "COMMANDS", "source": "Citizen", "target": "Legion", "properties": {} },
+    { "type": "STATIONED_IN", "source": "Legion", "target": "Province", "properties": { "since_year": "int" } },
+    { "type": "EXTRACTS", "source": "Province", "target": "Resource", "properties": { "annual_yield": "int" } },
+    { "type": "BUILT", "source": "Empire", "target": "Monument", "properties": {} },
+    { "type": "LOCATED_IN", "source": "Monument", "target": "Province", "properties": { "construction_year": "int" } }
+  ]
+}
