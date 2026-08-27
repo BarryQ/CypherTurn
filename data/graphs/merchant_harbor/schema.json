@@ -1,0 +1,110 @@
+{
+  "graph_name": "merchant_harbor",
+  "description": "A prosperous fantasy trading port network of traders, storehouses, cargoes, invoices, buyers, and territories.",
+  "nodes": [
+    {
+      "label": "Trader",
+      "count": 50,
+      "properties": {
+        "name": "string",
+        "homeland": "string",
+        "guild_tier": "string",
+        "reputation": "int"
+      }
+    },
+    {
+      "label": "Storehouse",
+      "count": 20,
+      "properties": {
+        "name": "string",
+        "district": "string",
+        "capacity": "int",
+        "territory": "string"
+      }
+    },
+    {
+      "label": "Cargo",
+      "count": 150,
+      "properties": {
+        "name": "string",
+        "category": "string",
+        "weight_units": "int",
+        "spoilage_days": "int"
+      }
+    },
+    {
+      "label": "Invoice",
+      "count": 150,
+      "properties": {
+        "name": "string",
+        "trade_year": "int",
+        "gold_value": "int",
+        "status": "string"
+      }
+    },
+    {
+      "label": "Buyer",
+      "count": 100,
+      "properties": {
+        "name": "string",
+        "faction": "string",
+        "loyalty_years": "int",
+        "territory": "string"
+      }
+    },
+    {
+      "label": "Territory",
+      "count": 20,
+      "properties": {
+        "name": "string",
+        "realm": "string",
+        "trade_zone": "string",
+        "avg_transit_days": "int"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "SUPPLIES",
+      "source": "Trader",
+      "target": "Cargo",
+      "properties": {"unit_cost": "int", "lead_days": "int"}
+    },
+    {
+      "type": "HOLDS",
+      "source": "Storehouse",
+      "target": "Cargo",
+      "properties": {"quantity": "int"}
+    },
+    {
+      "type": "INCLUDES",
+      "source": "Invoice",
+      "target": "Cargo",
+      "properties": {"quantity": "int", "unit_price": "int"}
+    },
+    {
+      "type": "ISSUED_TO",
+      "source": "Invoice",
+      "target": "Buyer",
+      "properties": {}
+    },
+    {
+      "type": "DISPATCHED_BY",
+      "source": "Invoice",
+      "target": "Storehouse",
+      "properties": {"delivery_days": "int"}
+    },
+    {
+      "type": "OPERATES_IN",
+      "source": "Trader",
+      "target": "Territory",
+      "properties": {"since_year": "int"}
+    },
+    {
+      "type": "DOCKED_IN",
+      "source": "Storehouse",
+      "target": "Territory",
+      "properties": {}
+    }
+  ]
+}

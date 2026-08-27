@@ -1,0 +1,97 @@
+{
+  "graph_name": "stellar_colony",
+  "description": "In 2350 CE, humanity has established multiple colonies across the galaxy. This fictional world contains colonies, cities, citizens, resources, and factions.",
+  "nodes": [
+    {
+      "label": "Colony",
+      "count": 50,
+      "properties": {
+        "name": "string",
+        "founded_year": "int",
+        "population": "int",
+        "climate": "string"
+      }
+    },
+    {
+      "label": "City",
+      "count": 100,
+      "properties": {
+        "name": "string",
+        "population": "int",
+        "district_type": "string"
+      }
+    },
+    {
+      "label": "Citizen",
+      "count": 150,
+      "properties": {
+        "name": "string",
+        "birth_year": "int",
+        "profession": "string",
+        "species": "string"
+      }
+    },
+    {
+      "label": "Resource",
+      "count": 80,
+      "properties": {
+        "name": "string",
+        "unit": "string",
+        "rarity": "int"
+      }
+    },
+    {
+      "label": "Faction",
+      "count": 50,
+      "properties": {
+        "name": "string",
+        "ideology": "string",
+        "founded_year": "int"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "HAS_CITY",
+      "source": "Colony",
+      "target": "City",
+      "properties": {}
+    },
+    {
+      "type": "INHABITED_BY",
+      "source": "City",
+      "target": "Citizen",
+      "properties": {}
+    },
+    {
+      "type": "BELONGS_TO",
+      "source": "Citizen",
+      "target": "Faction",
+      "properties": {
+        "joined_year": "int"
+      }
+    },
+    {
+      "type": "PRODUCES",
+      "source": "Colony",
+      "target": "Resource",
+      "properties": {
+        "annual_output": "int"
+      }
+    },
+    {
+      "type": "HARVESTS",
+      "source": "Citizen",
+      "target": "Resource",
+      "properties": {}
+    },
+    {
+      "type": "ALLIED_WITH",
+      "source": "Faction",
+      "target": "Faction",
+      "properties": {
+        "since_year": "int"
+      }
+    }
+  ]
+}

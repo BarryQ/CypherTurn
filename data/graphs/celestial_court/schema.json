@@ -1,0 +1,104 @@
+{
+  "graph_name": "celestial_court",
+  "description": "A mythical celestial bureaucracy with ministries, bureaus, prefectures, officials, decrees, and provinces.",
+  "nodes": [
+    {
+      "label": "Ministry",
+      "count": 5,
+      "properties": {
+        "name": "string",
+        "doctrine": "string",
+        "founded_year": "int",
+        "annual_budget": "int"
+      }
+    },
+    {
+      "label": "Bureau",
+      "count": 20,
+      "properties": {
+        "name": "string",
+        "mandate": "string",
+        "headcount": "int",
+        "celestial_tier": "string"
+      }
+    },
+    {
+      "label": "Prefecture",
+      "count": 50,
+      "properties": {
+        "name": "string",
+        "administrative_code": "int",
+        "oversight_tier": "int",
+        "region": "string"
+      }
+    },
+    {
+      "label": "Official",
+      "count": 250,
+      "properties": {
+        "name": "string",
+        "rank": "int",
+        "jade_salary": "int",
+        "years_in_service": "int"
+      }
+    },
+    {
+      "label": "Decree",
+      "count": 81,
+      "properties": {
+        "name": "string",
+        "jade_budget": "int",
+        "issued_year": "int",
+        "status": "string"
+      }
+    },
+    {
+      "label": "Province",
+      "count": 45,
+      "properties": {
+        "name": "string",
+        "realm": "string",
+        "tribute_gold": "int",
+        "population": "int"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "type": "OVERSEES",
+      "source": "Ministry",
+      "target": "Bureau",
+      "properties": {}
+    },
+    {
+      "type": "BELONGS_TO",
+      "source": "Prefecture",
+      "target": "Bureau",
+      "properties": {}
+    },
+    {
+      "type": "STATIONED_IN",
+      "source": "Official",
+      "target": "Prefecture",
+      "properties": {"since_year": "int"}
+    },
+    {
+      "type": "SERVES_UNDER",
+      "source": "Official",
+      "target": "Official",
+      "properties": {}
+    },
+    {
+      "type": "ENTRUSTED_WITH",
+      "source": "Official",
+      "target": "Decree",
+      "properties": {"role": "string", "days_allocated": "int"}
+    },
+    {
+      "type": "ADMINISTERS",
+      "source": "Bureau",
+      "target": "Province",
+      "properties": {"appointment_year": "int", "annual_tribute": "int"}
+    }
+  ]
+}

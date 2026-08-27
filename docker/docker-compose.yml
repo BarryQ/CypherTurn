@@ -1,0 +1,95 @@
+version: "3.8"
+
+services:
+  neo4j-stellar-colony:
+    image: neo4j:5.15.0
+    container_name: graphturn-stellar-colony
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7687:7687"
+      - "7474:7474"
+    volumes:
+      - stellar_data:/data
+
+  neo4j-magic-academy:
+    image: neo4j:5.15.0
+    container_name: graphturn-magic-academy
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7688:7687"
+      - "7475:7474"
+    volumes:
+      - magic_data:/data
+
+  neo4j-ocean-kingdom:
+    image: neo4j:5.15.0
+    container_name: graphturn-ocean-kingdom
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7689:7687"
+      - "7476:7474"
+    volumes:
+      - ocean_data:/data
+
+  neo4j-ancient-empire:
+    image: neo4j:5.15.0
+    container_name: graphturn-ancient-empire
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7690:7687"
+      - "7477:7474"
+    volumes:
+      - ancient_data:/data
+
+  neo4j-arcane-archive:
+    image: neo4j:5.15.0
+    container_name: graphturn-arcane-archive
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7691:7687"
+      - "7478:7474"
+    volumes:
+      - arcane_data:/data
+
+  neo4j-merchant-harbor:
+    image: neo4j:5.15.0
+    container_name: graphturn-merchant-harbor
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7692:7687"
+      - "7479:7474"
+    volumes:
+      - merchant_data:/data
+
+  neo4j-celestial-court:
+    image: neo4j:5.15.0
+    container_name: graphturn-celestial-court
+    environment:
+      NEO4J_AUTH: neo4j/${NEO4J_PASSWORD:-password}
+      NEO4J_PLUGINS: '["apoc"]'
+    ports:
+      - "7693:7687"
+      - "7480:7474"
+    volumes:
+      - celestial_data:/data
+
+volumes:
+  stellar_data:
+  magic_data:
+  ocean_data:
+  ancient_data:
+  arcane_data:
+  merchant_data:
+  celestial_data:
